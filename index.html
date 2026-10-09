@@ -1,112 +1,174 @@
 
 
-<!DOCTYPE html>
+<!doctype html>
 
 <html lang="en">
 
 <head>
 
-<meta charset="UTF-8">
+<meta charset="utf-8">
 
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<title>Slime Lab Security | Access Granted</title>
+<meta name="theme-color" content="#e8fbf7">
+
+<title>Slime Lab HQ | Scientist Access</title>
 
 <style>
 
-* { box-sizing: border-box; }
+:root {
+
+  --ink:#18324d;
+
+  --muted:#587087;
+
+  --teal:#0c9f9a;
+
+  --mint:#dff9e9;
+
+  --blue:#d9efff;
+
+  --yellow:#fff1b8;
+
+  --orange:#ffcf9d;
+
+  --pink:#ffd7e9;
+
+  --purple:#e5d8ff;
+
+}
+
+* { box-sizing:border-box; }
 
 body {
 
-  margin: 0; min-height: 100vh; display: grid;
+  margin:0;
 
-  place-items: center; padding: 20px;
+  color:var(--ink);
 
-  font-family: "Trebuchet MS", Arial, sans-serif;
+  font-family:"Trebuchet MS",system-ui,sans-serif;
 
-  color: #49345f;
+  background:linear-gradient(145deg,#f5fbff,#effff8 45%,#fff6fb);
 
-  background: linear-gradient(135deg,#fff0f8,#eee5ff,#e4fff7);
-
-}
-
-.card {
-
-  width: 100%; max-width: 440px; padding: 30px 22px;
-
-  text-align: center; background: white;
-
-  border: 3px solid #d5baf5; border-radius: 28px;
-
-  box-shadow: 0 12px 35px #7855a326;
+  min-height:100vh;
 
 }
 
-.lab { font-size: 52px; margin-bottom: 8px; }
+header,main { max-width:1000px; margin:auto; padding:20px 16px; }
 
-.eyebrow {
+.topbar { display:flex; align-items:center; justify-content:space-between; gap:12px; }
 
-  font-size: 11px; letter-spacing: 3px;
+.logo { display:flex; align-items:center; gap:10px; font-weight:950; letter-spacing:.04em; }
 
-  font-weight: bold; color: #8a6aa9;
+.logo-mark {
+
+  display:grid; place-items:center; width:45px; height:45px;
+
+  border-radius:15px; background:linear-gradient(135deg,var(--yellow),var(--mint),var(--blue));
+
+  font-size:25px; border:2px solid white;
 
 }
 
-h1 { font-size: 32px; line-height: 1.1; margin: 12px 0; }
+.tag { font-size:11px; font-weight:900; letter-spacing:.08em; background:white; border:1px solid #d4e5ef; padding:8px 11px; border-radius:99px; }
 
-.subtitle { color: #806d91; font-size: 14px; }
+.hero {
+
+  text-align:center; padding:30px 20px 26px; border:2px solid white;
+
+  border-radius:30px; background:linear-gradient(115deg,#fff2c9,#e2fff6 42%,#e5e6ff 74%,#ffe5f0);
+
+}
+
+.eyebrow { font-size:11px; font-weight:950; letter-spacing:.18em; color:#42637d; }
+
+h1 { font-size:clamp(34px,8vw,66px); line-height:.98; margin:12px 0 10px; letter-spacing:-.04em; }
+
+h1 span { background:linear-gradient(90deg,#f28cae,#f0a34e,#20b6ad,#538bdc,#9a76d5); background-clip:text; -webkit-background-clip:text; color:transparent; }
+
+.subtitle { max-width:520px; margin:0 auto 20px; color:#4d667e; line-height:1.5; }
 
 .status {
 
-  margin: 25px 0; padding: 22px 10px;
+  max-width:430px; margin:auto; background:#e2fff4; border:2px solid #a7e8d5;
 
-  background: #e3fbf2; border: 2px solid #a5e5d0;
-
-  border-radius: 20px;
+  border-radius:20px; padding:14px 12px; display:flex; align-items:center; justify-content:center; gap:12px;
 
 }
 
-.check {
+.check { width:48px; height:48px; display:grid; place-items:center; border-radius:50%; background:#159d88; color:white; font-size:30px; font-weight:950; flex-shrink:0; }
 
-  margin: auto auto 12px; width: 65px; height: 65px;
+.status strong { display:block; font-size:clamp(20px,5vw,27px); color:#137967; }
 
-  display: grid; place-items: center; border-radius: 50%;
+.status small { display:block; color:#247e71; font-weight:900; letter-spacing:.08em; font-size:10px; margin-top:3px; }
 
-  background: #288873; color: white; font-size: 42px;
+.hero-bubbles { font-size:24px; margin-top:16px; letter-spacing:8px; }
 
-  font-weight: bold;
+.section-head { margin:27px 2px 12px; }
+
+h2 { font-size:21px; margin:0; }
+
+.section-head p { font-size:12px; color:var(--muted); }
+
+.grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:12px; }
+
+.tile { background:white; border:2px solid white; border-radius:22px; padding:17px; min-width:0; }
+
+.tile .emoji { font-size:31px; }
+
+.tile h3 { font-size:17px; margin:8px 0 6px; }
+
+.tile p { font-size:13px; line-height:1.5; color:var(--muted); margin:0 0 14px; }
+
+.tile.mission { background:linear-gradient(145deg,#fff,#fff4d9); }
+
+.tile.facts { background:linear-gradient(145deg,#fff,#e6fbf7); }
+
+.tile.photos { background:linear-gradient(145deg,#fff,#ffeaf3); }
+
+.tile.certificate { background:linear-gradient(145deg,#fff,#eee8ff); }
+
+button,.button {
+
+  appearance:none; border:0; border-radius:13px; padding:11px 14px;
+
+  font:inherit; font-size:13px; font-weight:900; cursor:pointer;
+
+  display:inline-flex; align-items:center; justify-content:center; gap:7px;
+
+  text-decoration:none; background:#173d5a; color:white; min-height:42px;
 
 }
 
-h2 { margin: 0; color: #247260; font-size: 27px; }
+button.secondary,.button.secondary { background:white; color:#1b536a; border:1px solid #c6e4e9; }
 
-.status p {
+.result { margin-top:12px; padding:12px; border-radius:14px; background:#ffffffd9; border:1px dashed #b8d5dd; font-size:13px; line-height:1.5; min-height:48px; }
 
-  font-weight: bold; font-size: 12px;
+.pill-row { display:flex; flex-wrap:wrap; gap:7px; margin-top:12px; }
 
-  letter-spacing: 2px; color: #247260;
+.pill { font-size:11px; font-weight:850; padding:7px 10px; border-radius:99px; background:white; border:1px solid #d9e9ec; }
 
-}
+.photo-buttons { display:flex; flex-wrap:wrap; gap:10px; margin-top:12px; }
 
-.pill {
+.photo-note { font-size:12px!important; margin-top:10px!important; }
 
-  display: inline-block; margin: 4px; padding: 9px 12px;
+.wide { margin-top:16px; background:white; border:2px solid white; border-radius:22px; padding:18px; display:flex; align-items:center; gap:14px; }
 
-  background: #f4eaff; border-radius: 20px;
+.wide .emoji { font-size:34px; }
 
-  font-size: 12px; font-weight: bold;
+.wide p { margin:4px 0 0; color:var(--muted); font-size:13px; line-height:1.45; }
 
-}
+footer { text-align:center; color:#6c8092; font-size:11px; line-height:1.6; padding:26px 10px 10px; }
 
-.welcome { font-weight: bold; margin-top: 24px; }
+@media(max-width:560px) {
 
-.footer {
+  .grid { grid-template-columns:1fr; }
 
-  border-top: 1px dashed #d8c5e9; margin-top: 22px;
+  .topbar { align-items:flex-start; }
 
-  padding-top: 16px; font-size: 12px;
+  .tag { font-size:9px; }
 
-  line-height: 1.6; color: #816d93;
+  .wide { align-items:flex-start; }
 
 }
 
@@ -116,49 +178,205 @@ h2 { margin: 0; color: #247260; font-size: 27px; }
 
 <body>
 
-<main class="card">
+<header>
 
-  <div class="lab">🧪 🫧 ✨</div>
+  <div class="topbar">
 
-  <div class="eyebrow">KEAGAN & IVALEE PRESENT</div>
+    <div class="logo"><div class="logo-mark">🧪</div><div>SLIME LAB <span style="color:#159d9a">HQ</span></div></div>
 
-  <h1>SLIME LAB<br>SECURITY</h1>
-
-  <p class="subtitle">Official Scientist Credential Verification</p>
-
-  <section class="status">
-
-    <div class="check">✓</div>
-
-    <h2>ACCESS GRANTED</h2>
-
-    <p>SCIENTIST VERIFIED</p>
-
-  </section>
-
-  <div class="pill">🧬 SLIME SPECIALIST</div>
-
-  <div class="pill">🧫 LAB STATUS: OPEN</div>
-
-  <p class="welcome">
-
-    Welcome to Keagan & Ivalee's Slime Lab!
-
-  </p>
-
-  <p>Goggles on. Creativity activated. 💗</p>
-
-  <div class="footer">
-
-    OFFICIAL SCIENTIST CREDENTIAL<br>
-
-    Your access has been approved.<br>
-
-    Have a wonderfully gooey experiment!
+    <div class="tag">🛡️ OFFICIAL SCIENTIST PORTAL</div>
 
   </div>
 
+</header>
+
+<main>
+
+  <section class="hero">
+
+    <div class="eyebrow">KEAGAN & IVALEE PRESENT</div>
+
+    <h1><span>SLIME LAB</span><br>SECURITY</h1>
+
+    <p class="subtitle">Your scientist ID has been verified. Welcome to the lab, where big ideas get gloriously gooey.</p>
+
+    <div class="status">
+
+      <div class="check">✓</div>
+
+      <div><strong>ACCESS GRANTED</strong><small>SCIENTIST VERIFIED · CLEARANCE: SLIME SPECIALIST</small></div>
+
+    </div>
+
+    <div class="hero-bubbles" aria-hidden="true">🫧 🧬 ⚗️ ✨</div>
+
+  </section>
+
+  <div class="section-head">
+
+    <h2>Choose your lab activity</h2>
+
+    <p>Pick a mission. Make a discovery. Have fun!</p>
+
+  </div>
+
+  <section class="grid">
+
+    <article class="tile mission">
+
+      <div class="emoji">🧩</div>
+
+      <h3>Secret Lab Mission</h3>
+
+      <p>Every scientist needs a challenge. Tap below to receive your top-secret mission.</p>
+
+      <button onclick="newMission()">🎯 Reveal a mission</button>
+
+      <div id="missionResult" class="result" aria-live="polite">MISSION STATUS: Awaiting assignment…</div>
+
+    </article>
+
+    <article class="tile facts">
+
+      <div class="emoji">🔬</div>
+
+      <h3>Slime Science Lab</h3>
+
+      <p>Discover the science behind the squish. Tap for a surprising science fact.</p>
+
+      <button class="secondary" onclick="newFact()">💡 Reveal a science fact</button>
+
+      <div id="factResult" class="result" aria-live="polite">SCIENCE DATABASE: Ready to explore…</div>
+
+    </article>
+
+    <article class="tile photos">
+
+      <div class="emoji">📸</div>
+
+      <h3>Party Photo Gallery</h3>
+
+      <p>Grown-ups, help us capture the fun! Upload your favorite moments or browse the shared gallery.</p>
+
+      <div class="photo-buttons">
+
+        <a class="button" href="https://www.dropbox.com/request/miipfxa5o7gm31qkcsm4" target="_blank" rel="noopener noreferrer">📷 Upload party photos</a>
+
+        <a class="button secondary" href="https://www.dropbox.com/scl/fo/px8vd998wa9v436qt5o93/AMDWCSLRV94apOSAgyfJuNY?rlkey=q5h1jje66hq35vxwf9rmxyil4&amp;st=52xuz8t4&amp;dl=0" target="_blank" rel="noopener noreferrer">🖼️ View party gallery</a>
+
+      </div>
+
+      <p class="photo-note">Please ask a grown-up before sharing photos of other guests. Thanks for helping us capture these memories!</p>
+
+    </article>
+
+    <article class="tile certificate">
+
+      <div class="emoji">🏅</div>
+
+      <h3>Scientist Certificate</h3>
+
+      <p>You completed your lab clearance. Make a printable certificate to celebrate your new title.</p>
+
+      <button class="secondary" onclick="openCertificate()">🏆 Get certified</button>
+
+      <div class="pill-row"><span class="pill">SLIME SPECIALIST</span><span class="pill">LEVEL 1</span><span class="pill">LAB APPROVED</span></div>
+
+    </article>
+
+  </section>
+
+  <section class="wide">
+
+    <div class="emoji">🧤</div>
+
+    <div><h3 style="margin:0 0 4px">Lab safety reminder</h3><p>Keep slime away from mouths and eyes, wash hands after play, and ask a grown-up for help if anything spills or irritates your skin.</p></div>
+
+  </section>
+
+  <footer>
+
+    KEAGAN & IVALEE’S SLIME LAB · SCIENTIST ACCESS PORTAL<br>
+
+    Stay curious. Experiment kindly. Leave with extra sparkle. 🫧
+
+  </footer>
+
 </main>
+
+<script>
+
+const missions = [
+
+  "MISSION 01: Invent a name for a brand-new slime color.",
+
+  "MISSION 02: Find three different textures at the slime bar.",
+
+  "MISSION 03: Create a slime recipe name worthy of a top scientist.",
+
+  "MISSION 04: Tell another scientist one thing you discovered.",
+
+  "MISSION 05: Design a pretend label for a mysterious slime sample.",
+
+  "MISSION 06: Make a bubble, stretch, or swirl and observe what happens.",
+
+  "MISSION 07: Find something in the lab that is teal, orange, or purple.",
+
+  "MISSION 08: Give your slime a secret code name."
+
+];
+
+const facts = [
+
+  "Slime is a non-Newtonian material: it can behave differently depending on how you pull, press, or stretch it.",
+
+  "Many slime recipes use glue, which contains long molecules called polymers.",
+
+  "Polymers are long chains of repeating building blocks. Some everyday examples include plastic and the starch in food.",
+
+  "Slowly pulling slime and quickly tugging it can make it behave differently. Scientists observe how materials respond to force.",
+
+  "A good experiment changes one thing at a time so you can compare what happens."
+
+];
+
+function pick(arr) {
+
+  return arr[Math.floor(Math.random()*arr.length)];
+
+}
+
+function newMission() {
+
+  document.getElementById('missionResult').textContent=pick(missions);
+
+}
+
+function newFact() {
+
+  document.getElementById('factResult').textContent=pick(facts);
+
+}
+
+function openCertificate() {
+
+  const win=window.open('','_blank');
+
+  if(!win) {
+
+    alert('Please allow the certificate pop-up, then tap Get Certified again.');
+
+    return;
+
+  }
+
+  win.document.write(`<!doctype html><html><head><meta name="viewport" content="width=device-width, initial-scale=1"><title>Slime Lab Certificate</title><style>body{font-family:Georgia,serif;background:#f4fbff;color:#18324d;text-align:center;padding:24px}.cert{max-width:700px;margin:20px auto;background:white;border:8px double #4fbab0;padding:35px 22px;border-radius:22px}h1{font-size:clamp(30px,7vw,48px);color:#6851a5}p{line-height:1.6}.line{margin:35px auto 10px;border-bottom:1px solid #789;width:80%;padding:8px}button{background:#173d5a;color:white;border:0;border-radius:10px;padding:12px 18px;font-weight:bold}@media print{button{display:none}body{background:white}}</style></head><body><div class="cert"><div style="font-size:40px">🧪 🏅 🫧</div><p>KEAGAN & IVALEE’S SLIME LAB</p><h1>Certificate of Slime Science</h1><p>This certifies that</p><div class="line">Scientist Name</div><p>has been granted the honorary title of</p><h2>OFFICIAL SLIME SPECIALIST</h2><p>For curiosity, creativity, and outstanding gooey discoveries.</p><p>STATUS: SCIENTIST VERIFIED · ACCESS GRANTED</p><p>🔬 Keep experimenting!</p><button onclick="window.print()">Print certificate</button></div></body></html>`);
+
+  win.document.close();
+
+}
+
+</script>
 
 </body>
 
