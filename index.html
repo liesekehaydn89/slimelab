@@ -14,67 +14,117 @@
 
 <style>
 
-*{box-sizing:border-box}
+:root {
 
-body{margin:0;font-family:"Trebuchet MS",Arial,sans-serif;color:#493956;background:linear-gradient(135deg,#fff5cf,#e1fff6,#f0e7ff,#ffe5ef)}
+  --pink:#ffb8d2; --purple:#d9c4ff; --blue:#bceaff;
 
-header,main{max-width:1000px;margin:auto;padding:18px}
+  --yellow:#fff0a8; --green:#c9f5d4; --ink:#493d61;
 
-header{display:flex;justify-content:space-between;align-items:center;gap:10px;font-weight:bold}
+}
 
-.tag{background:white;padding:9px 12px;border-radius:30px;font-size:11px}
+* { box-sizing:border-box; }
 
-.hero{text-align:center;background:#ffffffdc;border:3px solid white;border-radius:30px;padding:32px 18px}
+body {
 
-h1{font-size:clamp(34px,8vw,62px);margin:12px 0;color:#d76caa}
+  margin:0; font-family: "Trebuchet MS", Arial, sans-serif;
 
-.hero h1{background:linear-gradient(90deg,#ef83b3,#eda64e,#25b4a9,#8c72dc);color:transparent;background-clip:text}
+  color:var(--ink); line-height:1.6;
 
-.access{display:inline-block;background:#d8fff0;border:2px solid #8ed9bf;border-radius:18px;padding:14px;font-weight:bold;color:#167c68}
+  background:linear-gradient(135deg,#fff6fb,#f7f2ff,#effaff);
 
-h2{margin:28px 0 12px}
+}
 
-.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:13px}
+header {
 
-.card{background:#ffffffed;border:2px solid white;border-radius:22px;padding:18px;min-width:0;box-shadow:0 6px 20px #66508012}
+  text-align:center; padding:42px 18px 30px;
 
-.card h3{margin:8px 0}
+  background:linear-gradient(110deg,var(--pink),var(--purple),var(--blue),var(--green));
 
-.card p{font-size:14px;line-height:1.5}
+  border-bottom:5px dotted white;
 
-.emoji{font-size:32px}
+}
 
-button,.btn{display:inline-block;border:0;border-radius:12px;padding:11px 14px;background:#51416e;color:white;font-weight:bold;text-decoration:none;font-size:14px;cursor:pointer;margin:3px 2px}
+.eyebrow { text-transform:uppercase; letter-spacing:3px; font-weight:bold; }
 
-.secondary{background:white;color:#51416e;border:1px solid #ddd0ee}
+h1 { font-size:clamp(2.2rem,8vw,4.5rem); line-height:1.05; margin:12px 0; }
 
-.result{background:#fff8ff;border:1px dashed #d9bce9;border-radius:13px;padding:12px;margin-top:10px;min-height:42px;font-size:14px;line-height:1.5}
+header p { font-size:1.1rem; margin:8px; }
 
-input{width:100%;padding:12px;border:1px solid #d6c5e7;border-radius:10px;margin:8px 0}
+nav { display:flex; justify-content:center; gap:10px; flex-wrap:wrap; padding:15px; }
 
-.board{height:190px;background:#fff4fb;border:2px dashed #c5b3e8;border-radius:16px;position:relative;overflow:hidden;margin-top:10px}
+nav a,.btn {
 
-.bubble{position:absolute;background:transparent!important;color:#51416e!important;font-size:30px!important;padding:0!important;box-shadow:none!important}
+  display:inline-block; padding:10px 16px; border-radius:25px;
 
-.color-options{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin-top:14px}
+  background:white; color:var(--ink); text-decoration:none;
 
-.color-option{background:white;color:#51416e;border:2px solid #eadcf4;padding:12px 4px;margin:0}
+  font-weight:bold; border:2px solid #eadcf9; cursor:pointer;
 
-.color-option span{display:block;font-size:25px}
+}
 
-.color-option small{font-size:11px}
+main { max-width:1050px; padding:18px; margin:auto; }
 
-.certificate{background:linear-gradient(135deg,#fffaf0,#f0fffb,#fff2f8);border:8px double #dca8d5;outline:2px solid #f4d3a2;outline-offset:-15px;padding:28px 16px;text-align:center;margin-top:14px;color:#51416e}
+section {
 
-.cert-title{font-size:clamp(25px,6vw,42px);color:#bd65a4;margin:8px 0}
+  background:#ffffffdf; border:2px solid white; border-radius:24px;
 
-.cert-name{border-bottom:2px solid #b99bcf;min-height:35px;font-size:24px;margin:20px auto;max-width:450px;overflow-wrap:anywhere}
+  padding:24px; margin:20px 0; box-shadow:0 8px 24px #6d508510;
 
-footer{text-align:center;padding:25px;font-size:12px}
+}
 
-@media(max-width:560px){.grid{grid-template-columns:1fr}header{align-items:flex-start}.tag{max-width:150px}.color-options{grid-template-columns:repeat(2,minmax(0,1fr))}}
+h2 { font-size:1.8rem; margin-top:0; }
 
-@media print{body{background:white}.no-print{display:none!important}.certificate{break-inside:avoid}}
+.grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:15px; }
+
+.tile { border-radius:18px; padding:20px; background:#fff4fa; }
+
+.tile:nth-child(2) { background:#f4efff; }
+
+.tile:nth-child(3) { background:#edfbff; }
+
+.tile:nth-child(4) { background:#f0fff2; }
+
+.btn { background:var(--purple); border:0; margin:5px 4px 5px 0; }
+
+input,select {
+
+  padding:12px; border:2px solid #e4d5f7; border-radius:12px;
+
+  max-width:100%; font:inherit; color:var(--ink);
+
+}
+
+.result { background:#fff6d7; padding:14px; border-radius:14px; margin-top:12px; }
+
+.small { font-size:.92rem; }
+
+footer { text-align:center; padding:25px; }
+
+#certificate {
+
+  background:white; border:8px double #d9b8ff; padding:25px;
+
+  text-align:center; border-radius:10px; margin-top:15px;
+
+}
+
+#certificate h3 { font-size:2rem; margin:8px; }
+
+.name-line { border-bottom:2px solid #d9b8ff; padding:12px; font-size:1.6rem; min-height:55px; }
+
+@media print {
+
+  body { background:white; }
+
+  body * { visibility:hidden; }
+
+  #certificate,#certificate * { visibility:visible; }
+
+  #certificate { position:absolute; left:0; top:0; width:100%; border:8px double #b99be9; }
+
+  .no-print { display:none !important; }
+
+}
 
 </style>
 
@@ -82,427 +132,325 @@ footer{text-align:center;padding:25px;font-size:12px}
 
 <body>
 
-<header><div>🧪 SLIME LAB HQ</div><div class="tag">🔬 OFFICIAL SCIENTIST PORTAL</div></header>
+<header>
+
+  <div class="eyebrow">🧪 Welcome, Junior Scientists! 🧪</div>
+
+  <h1>Keagan & Ivalee's<br>Slime Lab</h1>
+
+  <p>✨ Your official headquarters for all things slime! ✨</p>
+
+  <p>Experiment • Create • Stretch • Discover</p>
+
+</header>
+
+<nav>
+
+  <a href="#mission">Lab Mission</a>
+
+  <a href="#photos">Party Photos</a>
+
+  <a href="#certificate-section">Certificate</a>
+
+  <a href="#games">Slime Games</a>
+
+  <a href="#science">Slime Science</a>
+
+</nav>
 
 <main>
 
-<section class="hero">
+<section id="mission">
 
-<div>✨ KEAGAN & IVALEE'S ✨</div>
+  <h2>🔬 Your Mission Starts Here!</h2>
 
-<h1>SLIME LAB</h1>
+  <p>Welcome to the Slime Lab! Grab your imagination, put on your imaginary lab coat, and get ready to explore a world of colorful, squishy science.</p>
 
-<p>Welcome, scientist! Your clearance has been approved.<br>Prepare for a gloriously gooey adventure!</p>
+  <div class="grid">
 
-<div class="access">✓ ACCESS GRANTED<br><small>SLIME SPECIALIST CLEARANCE</small></div>
+    <div class="tile"><h3>🧫 CREATE</h3><p>Dream up a totally unique slime creation.</p></div>
 
-<p>🫧 🧬 ⚗️ 🌈 ⭐</p>
+    <div class="tile"><h3>🌈 EXPERIMENT</h3><p>Explore colors, textures, stretchiness, and squishiness.</p></div>
 
-</section>
+    <div class="tile"><h3>🧠 DISCOVER</h3><p>Learn the science behind your favorite goo.</p></div>
 
-<h2>🧪 Choose Your Lab Activity</h2>
+    <div class="tile"><h3>🏅 ACHIEVE</h3><p>Complete your mission and earn your scientist certificate!</p></div>
 
-<section class="grid">
-
-<article class="card">
-
-<div class="emoji">🎯</div><h3>Secret Lab Mission</h3>
-
-<p>Receive a top-secret scientist challenge.</p>
-
-<button onclick="showMission()">Reveal a mission</button>
-
-<div class="result" id="mission">Awaiting assignment...</div>
-
-</article>
-
-<article class="card">
-
-<div class="emoji">🔬</div><h3>Slime Science</h3>
-
-<p>Discover fascinating facts about slime.</p>
-
-<button class="secondary" onclick="showFact()">Reveal a science fact</button>
-
-<div class="result" id="fact">Science database ready!</div>
-
-</article>
-
-<article class="card">
-
-<div class="emoji">📸</div><h3>Party Photo Gallery</h3>
-
-<p>Upload party memories or browse the shared pictures.</p>
-
-<a class="btn" target="_blank" rel="noopener" href="https://www.dropbox.com/request/miipfxa5o7gm31qkcsm4">📷 Upload photos</a>
-
-<a class="btn secondary" target="_blank" rel="noopener" href="https://www.dropbox.com/scl/fo/px8vd998wa9v436qt5o93/AMDWCSLRV94apOSAgyfJuNY?rlkey=q5h1jje66hq35vxwf9rmxyil4&st=52xuz8t4&dl=0">🖼️ View gallery</a>
-
-</article>
-
-<article class="card">
-
-<div class="emoji">🏅</div><h3>Scientist Certificate</h3>
-
-<p>Enter a name to create a printable pastel rainbow certificate.</p>
-
-<input id="studentName" placeholder="Scientist's name">
-
-<button onclick="makeCertificate()">Get certified!</button>
-
-<div id="certificateArea"></div>
-
-</article>
-
-<article class="card">
-
-<div class="emoji">🧑‍🔬</div><h3>Scientist Name Generator</h3>
-
-<p>Discover your official lab identity.</p>
-
-<button onclick="generateScientist()">Generate my name</button>
-
-<div class="result" id="scientistResult">Identity classified...</div>
-
-</article>
-
-<article class="card">
-
-<div class="emoji">🫧</div><h3>Slime Name Generator</h3>
-
-<p>Give your goo a fabulous name.</p>
-
-<button class="secondary" onclick="generateSlime()">Name my slime</button>
-
-<div class="result" id="slimeResult">A mysterious slime awaits...</div>
-
-</article>
-
-<article class="card">
-
-<div class="emoji">🎯</div><h3>Pop the Slime Bubbles</h3>
-
-<p>Pop as many bubbles as you can in 15 seconds!</p>
-
-<div class="result" id="gameScore">Score: 0 · Time: 15s</div>
-
-<button onclick="startGame()">▶ Start game</button>
-
-<div class="board" id="gameBoard">🫧 Ready, scientist?</div>
-
-</article>
-
-<article class="card">
-
-<div class="emoji">🖍️</div><h3>Slime Lab Coloring Pages</h3>
-
-<p>Four cute, black-and-white coloring pages inspired by your pastel slime party. Each opens as a separate printable US Letter page.</p>
-
-<div class="color-options">
-
-<button class="color-option" onclick="openColoring(0)"><span>🫙</span>Cute Slime Jar<br><small>Hearts & stars</small></button>
-
-<button class="color-option" onclick="openColoring(1)"><span>🧑‍🔬</span>Slime Scientist<br><small>Goggles & goo</small></button>
-
-<button class="color-option" onclick="openColoring(2)"><span>🌈</span>Rainbow Slime<br><small>Rainbow & slime pots</small></button>
-
-<button class="color-option" onclick="openColoring(3)"><span>⚗️</span>Slime Lab<br><small>Flasks & test tubes</small></button>
-
-</div>
-
-<div class="result">Choose a design, then tap Print Coloring Page. Print settings should be US Letter, portrait, and Fit to Page.</div>
-
-</article>
+  </div>
 
 </section>
 
-<article class="card" style="margin-top:16px">
+<section id="photos">
 
-<h3>🧤 Lab Safety Reminder</h3>
+  <h2>📸 The Lab Photo Gallery</h2>
 
-Keep slime away from mouths and eyes. Wash hands after playing, and ask a grown-up for help with spills.
+  <p>Did someone capture an amazing party moment? Upload your photos or peek at the pictures everyone has shared!</p>
 
-</article>
+  <div class="grid">
 
-<footer>KEAGAN & IVALEE'S SLIME LAB · OCTOBER 10, 2026 · STAY CURIOUS! 🫧</footer>
+    <div class="tile">
+
+      <h3>📤 Upload Your Photos</h3>
+
+      <p>Send your favorite party pictures to our shared photo drop box.</p>
+
+      <a class="btn" href="https://www.dropbox.com/request/miipfxa5o7gm31qkcsm4" target="_blank" rel="noopener">Upload Photos ↗</a>
+
+    </div>
+
+    <div class="tile">
+
+      <h3>🖼️ View the Gallery</h3>
+
+      <p>See the memories collected from our Slime Lab celebration.</p>
+
+      <a class="btn" href="https://www.dropbox.com/scl/fo/px8vd998wa9v436qt5o93/AMDWCSLRV94apOSAgyfJuNY?rlkey=q5h1jje66hq35vxwf9rmxyil4&st=52xuz8t&dl=0" target="_blank" rel="noopener">Open Gallery ↗</a>
+
+    </div>
+
+  </div>
+
+  <p class="small">Dropbox may ask you to open its website or app to upload or view pictures.</p>
+
+</section>
+
+<section id="certificate-section">
+
+  <h2>🏅 Official Junior Scientist Certificate</h2>
+
+  <p>Enter your name, then print your very own Slime Lab certificate!</p>
+
+  <div class="no-print">
+
+    <label for="scientistName">Scientist name:</label><br>
+
+    <input id="scientistName" placeholder="Enter your name" maxlength="45">
+
+    <button class="btn" onclick="updateCertificate()">Add My Name ✨</button>
+
+    <button class="btn" onclick="window.print()">Print Certificate 🖨️</button>
+
+  </div>
+
+  <div id="certificate">
+
+    <div style="font-size:2.5rem">🧪 🌈 🧪</div>
+
+    <p style="letter-spacing:3px">SLIME LAB HQ PRESENTS</p>
+
+    <h3>Official Junior Scientist</h3>
+
+    <p>This certificate is proudly awarded to</p>
+
+    <div class="name-line" id="printedName">Amazing Scientist</div>
+
+    <p>for completing the Slime Lab mission and demonstrating</p>
+
+    <p><strong>CREATIVITY • CURIOSITY • SCIENTIFIC SPIRIT</strong></p>
+
+    <p>Keep experimenting and making wonderful discoveries!</p>
+
+    <p style="margin-top:25px">________________________</p>
+
+    <p>Chief Slime Scientists: Keagan & Ivalee</p>
+
+  </div>
+
+</section>
+
+<section id="games">
+
+  <h2>🎮 The Slime Games Lab</h2>
+
+  <div class="grid">
+
+    <div class="tile">
+
+      <h3>🧑‍🔬 Scientist Name Generator</h3>
+
+      <p>Discover your official lab identity.</p>
+
+      <button class="btn" onclick="generateScientist()">Generate My Name!</button>
+
+      <div class="result" id="scientistResult">Your scientist name will appear here.</div>
+
+    </div>
+
+    <div class="tile">
+
+      <h3>🫧 Slime Name Generator</h3>
+
+      <p>What would you call your dream slime?</p>
+
+      <button class="btn" onclick="generateSlime()">Name My Slime!</button>
+
+      <div class="result" id="slimeResult">Your slime name will appear here.</div>
+
+    </div>
+
+    <div class="tile">
+
+      <h3>🧠 Slime Quiz</h3>
+
+      <p>What happens when slime is pulled slowly?</p>
+
+      <button class="btn" onclick="answerQuiz('slow')">It stretches</button>
+
+      <button class="btn" onclick="answerQuiz('fast')">It turns into a rock</button>
+
+      <div class="result" id="quizResult">Choose an answer to test your science skills!</div>
+
+    </div>
+
+    <div class="tile">
+
+      <h3>🎯 Slime Lab Challenge</h3>
+
+      <p>Click to receive a silly science mission.</p>
+
+      <button class="btn" onclick="newMission()">Give Me a Mission!</button>
+
+      <div class="result" id="missionResult">Ready, scientist?</div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<section id="science">
+
+  <h2>🧬 Slime Science Corner</h2>
+
+  <div class="grid">
+
+    <div class="tile"><h3>What is slime?</h3><p>Many slimes are non-Newtonian materials: their behavior changes depending on how force is applied.</p></div>
+
+    <div class="tile"><h3>Why is it stretchy?</h3><p>In many slime recipes, long polymer chains interact to create a squishy material that can stretch and flow.</p></div>
+
+    <div class="tile"><h3>Why does it feel different?</h3><p>Ingredients and proportions affect a slime's texture, stretch, bounce, and stickiness.</p></div>
+
+    <div class="tile"><h3>Lab safety first!</h3><p>Never eat slime. Keep it away from eyes and mouths, wash hands after play, and ask an adult before trying experiments.</p></div>
+
+  </div>
+
+</section>
+
+<section>
+
+  <h2>📝 Scientist's Lab Notes</h2>
+
+  <p>What did you create? What colors did you mix? What did you discover?</p>
+
+  <textarea id="labNotes" rows="5" style="width:100%;padding:12px;border:2px solid #e4d5f7;border-radius:12px;font:inherit" placeholder="Write your scientific discoveries here..."></textarea>
+
+  <button class="btn" onclick="saveNotes()">Save Notes on This Page</button>
+
+  <p class="small" id="notesMessage">Notes are only kept in this open page. Copy them somewhere safe if you want to keep them.</p>
+
+</section>
 
 </main>
 
+<footer>
+
+  <p>🌈 Keagan & Ivalee's Slime Lab 🌈</p>
+
+  <p>Stay curious. Stay creative. Stay gloriously slimy!</p>
+
+</footer>
+
 <script>
 
-const pick=a=>a[Math.floor(Math.random()*a.length)];
+const scientistNames = [
 
-const missions=[
+  "Dr. Glitter Sparkle","Professor Bubblegum","Dr. Rainbow Sprinkle",
 
-"Invent a name for a brand-new slime color!",
+  "Professor Jellybean","Dr. Fizzy Pop","Professor Stardust",
 
-"Find three different slime textures.",
-
-"Give your slime a secret code name.",
-
-"Tell another scientist one thing you discovered.",
-
-"Create a recipe name worthy of a top scientist.",
-
-"Make a bubble, stretch, or swirl and observe what happens!",
-
-"Find something in the lab that is pink, teal, or purple."
+  "Dr. Wiggly Wonder","Professor Marshmallow"
 
 ];
 
-const facts=[
+const slimeNames = [
 
-"Slime is a non-Newtonian material: it can behave differently when pulled or pressed.",
+  "Unicorn Galaxy Goo","Cotton Candy Cloud","Rainbow Jelly Pop",
 
-"Many slime recipes use glue containing long molecules called polymers.",
+  "Glitter Mermaid Magic","Strawberry Stardust","Bubblegum Blizzard",
 
-"Polymers are long chains of repeating building blocks.",
-
-"Pulling slime slowly can make it behave differently than tugging it quickly.",
-
-"Scientists change one thing at a time to compare experimental results."
+  "Peachy Dream Slime","Cosmic Cupcake Goo"
 
 ];
 
-function showMission(){document.getElementById("mission").textContent=pick(missions)}
+const missions = [
 
-function showFact(){document.getElementById("fact").textContent=pick(facts)}
+  "Invent a name for a brand-new slime color.",
 
-const adjectives=["Glitter","Bubble","Cosmic","Wiggly","Sparkle","Turbo","Rainbow","Gooey","Professor","Fizz"];
+  "Describe your slime using five silly words.",
 
-const titles=["McSlime","Bubblesworth","Gloopington","Fizzlepants","Glimmergoo","Squishwell","Dr. Glitterpop","Wobbleton"];
+  "Imagine a slime that glows like the stars. What would you call it?",
 
-const colors=["Galaxy","Cotton Candy","Unicorn","Jellybean","Rainbow","Mermaid","Starlight","Bubblegum"];
+  "Create a secret handshake for your science team.",
 
-const slimeWords=["Gloop","Dream Swirl","Sparkle Goo","Jelly Jiggle","Cloud Puff","Moon Goo","Fizz Pop","Glitter Splash"];
+  "Invent a slime flavor name—but remember, slime is never for eating!",
 
-function generateScientist(){document.getElementById("scientistResult").textContent=pick(adjectives)+" "+pick(titles)}
+  "Pretend your slime came from outer space. What planet is it from?",
 
-function generateSlime(){document.getElementById("slimeResult").textContent=pick(colors)+" "+pick(slimeWords)+"!"}
+  "Make up a scientific explanation for the world's bounciest slime.",
 
-function escapeHTML(s){return s.replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]))}
-
-function makeCertificate(){
-
-const name=document.getElementById("studentName").value.trim();
-
-if(!name){alert("Enter the scientist's name first!");return}
-
-document.getElementById("certificateArea").innerHTML=
-
-'<div class="certificate"><div style="font-size:29px">🧪 💖 🌈 🫧</div>'+
-
-'<p style="letter-spacing:3px;font-weight:bold">KEAGAN & IVALEE’S</p>'+
-
-'<h2 class="cert-title">SLIME LAB</h2><h3>YOU’RE A CERTIFIED</h3>'+
-
-'<h2>SLIME LAB SPECIALIST!</h2><div class="cert-name">'+escapeHTML(name)+'</div>'+
-
-'<p>has officially completed the Slime Lab experience and is recognized as a certified slime creator, mixer, and scientist!</p>'+
-
-'<p>🗓 OCTOBER 10, 2026</p><p>CENTRAL SPOKANE LIBRARY · CENTRAL EVENT ROOM A</p>'+
-
-'<p>⭐ SCIENCE · CREATIVITY · SLIME ⭐</p>'+
-
-'<button class="no-print" onclick="window.print()">🖨️ Print certificate</button></div>';
-
-}
-
-let gameTimer=null,gameSeconds=15,gamePoints=0,gameRunning=false;
-
-function startGame(){
-
-clearInterval(gameTimer);gameSeconds=15;gamePoints=0;gameRunning=true;
-
-const board=document.getElementById("gameBoard");
-
-document.getElementById("gameScore").textContent="Score: 0 · Time: 15s";
-
-function spawn(){
-
-if(!gameRunning)return;
-
-board.innerHTML="";
-
-const b=document.createElement("button");b.className="bubble";
-
-b.textContent=pick(["🫧","🩷","💜","💙","✨"]);
-
-b.style.left=(5+Math.random()*80)+"%";b.style.top=(5+Math.random()*65)+"%";
-
-b.onclick=()=>{if(gameRunning){gamePoints++;document.getElementById("gameScore").textContent="Score: "+gamePoints+" · Time: "+gameSeconds+"s";spawn()}};
-
-board.appendChild(b)
-
-}
-
-spawn();
-
-gameTimer=setInterval(()=>{
-
-gameSeconds--;
-
-document.getElementById("gameScore").textContent="Score: "+gamePoints+" · Time: "+gameSeconds+"s";
-
-if(gameSeconds<=0){clearInterval(gameTimer);gameRunning=false;board.textContent="🧪 Experiment complete!";document.getElementById("gameScore").textContent="You popped "+gamePoints+" bubbles!"}
-
-},1000)
-
-}
-
-function openColoring(which){
-
-const common=`<text x="425" y="45" text-anchor="middle" font-family="Arial" font-weight="bold" font-size="20" fill="black">KEAGAN & IVALEE'S</text>
-
-<text x="425" y="80" text-anchor="middle" font-family="Arial" font-weight="bold" font-size="32" fill="black">SLIME LAB</text>
-
-<g fill="white" stroke="#222" stroke-width="4" stroke-linejoin="round" stroke-linecap="round">`;
-
-const end=`</g><text x="425" y="1090" text-anchor="middle" font-family="Arial" font-size="20" fill="black">My slime's name: _________________________</text>`;
-
-const art=[
-
-`<rect x="265" y="245" width="320" height="65" rx="12"/>
-
-<path d="M290 310H560V730Q560 770 520 770H330Q290 770 290 730Z"/>
-
-<path d="M293 450Q350 420 410 450T530 450T557 450V650H293Z"/>
-
-<path d="M360 545Q385 515 410 545M440 545Q465 515 490 545" fill="none"/>
-
-<circle cx="370" cy="530" r="10"/><circle cx="480" cy="530" r="10"/>
-
-<path d="M385 590Q425 625 465 590" fill="none"/>
-
-<path d="M360 310Q330 255 380 265Q425 225 460 265Q515 250 490 310"/>
-
-<path d="M425 240L440 210L455 240L485 245L463 265L470 292L425 275L390 292L397 265L375 245Z"/>
-
-<path d="M130 200L145 230L180 235L155 260L162 295L130 278L98 295L105 260L80 235L115 230Z"/>
-
-<path d="M700 250L715 280L750 285L725 310L732 345L700 328L668 345L675 310L650 285L685 280Z"/>
-
-<circle cx="180" cy="420" r="22"/><circle cx="665" cy="440" r="18"/>
-
-<path d="M180 830q30-35 60 0t60 0M620 830q30-35 60 0t60 0" fill="none"/>
-
-<rect x="95" y="650" width="125" height="165" rx="15"/><path d="M95 700H220" fill="none"/><circle cx="140" cy="740" r="6"/><circle cx="175" cy="740" r="6"/>
-
-<rect x="635" y="650" width="125" height="165" rx="15"/><path d="M635 700H760" fill="none"/><path d="M675 740l12 12 25-30" fill="none"/>`,
-
-`<path d="M300 260Q250 185 310 150Q360 120 420 165Q475 130 515 180Q560 220 520 275"/>
-
-<circle cx="350" cy="250" r="25"/><circle cx="450" cy="250" r="25"/>
-
-<path d="M375 250H425M325 250H295M475 250H505" fill="none"/>
-
-<path d="M370 300Q400 325 430 300" fill="none"/>
-
-<path d="M300 325L250 390L225 650L330 650L350 490L365 810H465L450 490L480 650H585L555 390L500 325L425 400Z"/>
-
-<path d="M350 350L400 430L450 350M400 430V600" fill="none"/>
-
-<path d="M260 390L195 470L245 505L300 430M535 390L610 450L570 500L510 430" fill="none"/>
-
-<path d="M565 380H625V465Q625 490 600 490H590Q565 490 565 465Z"/>
-
-<path d="M568 435Q595 420 622 435" fill="none"/>
-
-<path d="M100 420H160V600H100Z"/><path d="M90 420H170M110 460Q130 445 150 460" fill="none"/>
-
-<rect x="670" y="410" width="90" height="175" rx="10"/><path d="M670 455H760" fill="none"/>
-
-<path d="M140 220L150 245L180 250L158 270L164 300L140 285L116 300L122 270L100 250L130 245Z"/>
-
-<circle cx="220" cy="300" r="15"/><circle cx="620" cy="300" r="15"/>
-
-<path d="M270 850q25-25 50 0t50 0M520 850q25-25 50 0t50 0" fill="none"/>`,
-
-`<path d="M160 420A265 265 0 0 1 690 420M200 420A225 225 0 0 1 650 420M240 420A185 185 0 0 1 610 420M280 420A145 145 0 0 1 570 420" fill="none"/>
-
-<path d="M120 420H730" fill="none"/>
-
-<rect x="125" y="570" width="190" height="60" rx="15"/><path d="M145 630H295V815H145Z"/>
-
-<path d="M145 700Q180 675 220 700T295 700V785H145Z"/>
-
-<circle cx="185" cy="735" r="7"/><circle cx="255" cy="735" r="7"/><path d="M190 765Q220 785 250 765" fill="none"/>
-
-<rect x="340" y="570" width="190" height="60" rx="15"/><path d="M360 630H510V815H360Z"/>
-
-<path d="M360 700Q400 675 435 700T510 700V785H360Z"/>
-
-<circle cx="400" cy="735" r="7"/><circle cx="470" cy="735" r="7"/><path d="M405 765Q435 785 465 765" fill="none"/>
-
-<rect x="555" y="570" width="190" height="60" rx="15"/><path d="M575 630H725V815H575Z"/>
-
-<path d="M575 700Q610 675 650 700T725 700V785H575Z"/>
-
-<circle cx="615" cy="735" r="7"/><circle cx="685" cy="735" r="7"/><path d="M620 765Q650 785 680 765" fill="none"/>
-
-<path d="M130 230L145 260L180 265L155 290L162 325L130 308L98 325L105 290L80 265L115 260Z"/>
-
-<path d="M720 230L735 260L770 265L745 290L752 325L720 308L688 325L695 290L670 265L705 260Z"/>
-
-<circle cx="120" cy="490" r="20"/><circle cx="740" cy="490" r="20"/>
-
-<path d="M180 875q25-30 50 0t50 0M560 875q25-30 50 0t50 0" fill="none"/>`,
-
-`<path d="M130 260H240M155 260V465L115 540Q95 575 135 580H245Q280 575 260 540L220 465V260"/>
-
-<path d="M118 525Q180 500 257 525" fill="none"/>
-
-<circle cx="155" cy="550" r="6"/><circle cx="210" cy="550" r="6"/>
-
-<path d="M330 220H435M350 220V410L315 490Q300 520 335 525H435Q470 520 455 490L420 410V220"/>
-
-<path d="M318 475Q380 445 452 475" fill="none"/>
-
-<circle cx="355" cy="495" r="6"/><circle cx="410" cy="495" r="6"/>
-
-<path d="M545 270H650M565 270V465L525 540Q505 575 545 580H655Q690 575 670 540L630 465V270"/>
-
-<path d="M528 525Q590 500 667 525" fill="none"/>
-
-<path d="M110 690H745V730H110Z"/>
-
-<path d="M145 730V900M710 730V900M145 900H710" fill="none"/>
-
-<rect x="170" y="760" width="100" height="100" rx="8"/><path d="M170 800H270" fill="none"/>
-
-<rect x="320" y="760" width="100" height="100" rx="8"/><path d="M320 800H420" fill="none"/>
-
-<rect x="470" y="760" width="100" height="100" rx="8"/><path d="M470 800H570" fill="none"/>
-
-<path d="M125 170L140 200L175 205L150 230L157 265L125 248L93 265L100 230L75 205L110 200Z"/>
-
-<path d="M705 160L720 190L755 195L730 220L737 255L705 238L673 255L680 220L655 195L690 190Z"/>
-
-<circle cx="280" cy="180" r="15"/><circle cx="520" cy="180" r="15"/>
-
-<path d="M270 600q20-25 40 0t40 0M510 610q20-25 40 0t40 0" fill="none"/>`
+  "Design a label for the most magical slime in the universe."
 
 ];
 
-const names=["Cute Slime Jar","Slime Scientist","Rainbow Slime Lab","Slime Science Lab"];
+function pick(list) { return list[Math.floor(Math.random()*list.length)]; }
 
-const svg=`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 850 1120" width="850" height="1120"><rect x="12" y="12" width="826" height="1096" rx="20" fill="white" stroke="#222" stroke-width="4"/>`;
+function generateScientist() {
 
-const page=svg+`<g fill="white" stroke="#222" stroke-width="4" stroke-linejoin="round" stroke-linecap="round">
+  document.getElementById("scientistResult").textContent = pick(scientistNames);
 
-<text x="425" y="45" text-anchor="middle" font-family="Arial" font-weight="bold" font-size="20" fill="black" stroke="none">KEAGAN & IVALEE'S</text>
+}
 
-<text x="425" y="80" text-anchor="middle" font-family="Arial" font-weight="bold" font-size="32" fill="black" stroke="none">SLIME LAB</text>`+art[which]+`</g>
+function generateSlime() {
 
-<text x="425" y="1050" text-anchor="middle" font-family="Arial" font-size="20" fill="black">My slime's name: _________________________</text></svg>`;
+  document.getElementById("slimeResult").textContent = pick(slimeNames);
 
-const html=`<!DOCTYPE html><html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>${names[which]}</title><style>body{font-family:Arial;text-align:center;margin:12px;color:#222}svg{width:100%;max-width:680px;height:auto;max-height:78vh}button{padding:12px 20px;background:white;border:2px solid #333;border-radius:10px;font-weight:bold;font-size:16px}@page{size:letter portrait;margin:.25in}@media print{body{margin:0}button,.hint{display:none!important}svg{max-width:none;width:100%;max-height:9.9in;height:auto}}</style></head><body><h2>${names[which]}</h2>${page}<p><button onclick="window.print()">🖨️ Print coloring page</button></p><p class="hint">Print on US Letter paper, portrait, using Fit to Page.</p></body></html>`;
+}
 
-const w=window.open("","_blank");
+function updateCertificate() {
 
-if(!w){alert("Allow pop-ups to open your coloring page, then try again.");return}
+  const name = document.getElementById("scientistName").value.trim();
 
-w.document.open();w.document.write(html);w.document.close();
+  document.getElementById("printedName").textContent = name || "Amazing Scientist";
+
+}
+
+function answerQuiz(answer) {
+
+  const el = document.getElementById("quizResult");
+
+  if(answer === "slow") {
+
+    el.textContent = "Correct! Many slimes stretch when pulled slowly. Great science work! 🎉";
+
+  } else {
+
+    el.textContent = "Not quite! Try again. Slime can stretch when pulled slowly. 🧪";
+
+  }
+
+}
+
+function newMission() {
+
+  document.getElementById("missionResult").textContent = pick(missions);
+
+}
+
+function saveNotes() {
+
+  document.getElementById("notesMessage").textContent =
+
+    "Your notes are still in the box above. Copy them before leaving if you want to keep them!";
 
 }
 
